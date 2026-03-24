@@ -1,0 +1,96 @@
+{
+  "name": "graasp-app-combustion",
+  "version": "1.0.0",
+  "license": "AGPL-3.0-only",
+  "author": "Graasp",
+  "contributors": [
+    "Basile Spaenlehauer"
+  ],
+  "type": "module",
+  "homepage": ".",
+  "dependencies": {
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.0",
+    "@mui/icons-material": "^6.3.1",
+    "@mui/material": "^6.3.1",
+    "i18next": "24.2.1",
+    "konva": "^9.3.18",
+    "lodash.shuffle": "^4.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-i18next": "15.4.0",
+    "react-joyride": "^2.9.3",
+    "react-konva": "^18.2.10",
+    "react-toastify": "11.0.2"
+  },
+  "scripts": {
+    "dev": "yarn vite",
+    "start:test": "yarn vite --mode test",
+    "build": "yarn vite build",
+    "preview": "yarn vite preview",
+    "postinstall": "husky install",
+    "lint": "eslint .",
+    "prettier:write": "prettier {src,cypress}/**/*.{ts,tsx,js,jsx} --write",
+    "prettier:check": "prettier {src,cypress}/**/*.{ts,tsx,js,jsx} --check",
+    "type-check": "tsc --noEmit",
+    "check": "yarn lint && yarn prettier:check && yarn type-check",
+    "hooks:install": "husky install",
+    "hooks:uninstall": "husky uninstall",
+    "pre-commit": "yarn prettier:check && yarn lint"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.6.1",
+    "@commitlint/config-conventional": "19.6.0",
+    "@eslint/compat": "1.2.5",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.18.0",
+    "@trivago/prettier-plugin-sort-imports": "5.2.1",
+    "@types/i18n": "0.13.12",
+    "@types/lodash.shuffle": "4.2.9",
+    "@types/node": "22.10.5",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@typescript-eslint/eslint-plugin": "8.19.1",
+    "@typescript-eslint/parser": "8.19.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "env-cmd": "10.1.0",
+    "eslint": "9.18.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "5.1.0",
+    "globals": "15.14.0",
+    "husky": "9.1.7",
+    "prettier": "3.4.2",
+    "typescript": "^5.7.3",
+    "vite": "6.0.7",
+    "vite-plugin-checker": "0.8.0",
+    "vite-tsconfig-paths": "5.1.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/**/*.{js,ts,jsx,tsx}"
+    ],
+    "exclude": [
+      "src/**/*.d.ts"
+    ]
+  },
+  "packageManager": "yarn@4.0.1"
+}
