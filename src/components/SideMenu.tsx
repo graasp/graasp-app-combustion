@@ -1,6 +1,7 @@
 import { Drawer } from '@mui/material';
 
 import CustomDivider from './side-menu/CustomDivider';
+import EnergySwitch from './side-menu/EnergySwitch';
 import FuelSelect from './side-menu/FuelSelect';
 import UnitsSwitch from './side-menu/UnitsSwitch';
 
@@ -14,6 +15,8 @@ const SideMenu = (): JSX.Element => (
     <UnitsSwitch />
     <CustomDivider />
     <FuelSelect />
+    <CustomDivider />
+    <EnergySwitch />
   </Drawer>
 );
 
