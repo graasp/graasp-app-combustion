@@ -1,9 +1,9 @@
 import { FORMULA_BY_KEY } from '@/components/formulaByKey';
 
-import Molecule from './Molecule';
+import FormulaEntity from './FormulaEntity';
 
 const Water = (): JSX.Element => (
-  <Molecule number={4} formula={FORMULA_BY_KEY.water} />
+  <FormulaEntity number={4} formula={FORMULA_BY_KEY.water} caption="Water" />
 );
 
 export default Water;

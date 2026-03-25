@@ -1,9 +1,15 @@
 import { FORMULA_BY_KEY } from '@/components/formulaByKey';
+import { FORMULA_OXYGEN } from '@/constants/css';
 
-import Molecule from './Molecule';
+import FormulaEntity from './FormulaEntity';
 
 const Oxygen = (): JSX.Element => (
-  <Molecule number={0} formula={FORMULA_BY_KEY.oxygen} />
+  <FormulaEntity
+    number={0}
+    formula={FORMULA_BY_KEY.oxygen}
+    caption="Oxygen"
+    color={FORMULA_OXYGEN}
+  />
 );
 
 export default Oxygen;

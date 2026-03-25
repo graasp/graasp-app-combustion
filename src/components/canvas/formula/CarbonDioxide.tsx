@@ -1,9 +1,13 @@
 import { FORMULA_BY_KEY } from '@/components/formulaByKey';
 
-import Molecule from './Molecule';
+import FormulaEntity from './FormulaEntity';
 
 const CarbonDioxide = (): JSX.Element => (
-  <Molecule number={2} formula={FORMULA_BY_KEY.carbonDioxide} />
+  <FormulaEntity
+    number={2}
+    formula={FORMULA_BY_KEY.carbonDioxide}
+    caption="Carbon Dioxide"
+  />
 );
 
 export default CarbonDioxide;

@@ -3,26 +3,32 @@ import { Box, Typography } from '@mui/material';
 const container = {
   display: 'flex',
   justifyContent: 'center',
+  alignItems: 'center',
 };
 
 const numberStyles = {
   marginRight: '5px',
-  borderBottom: '2px dashed green',
-  color: 'green',
-  minWidth: '14px',
+  fontWeight: 500,
+};
+
+const formulaStyles = {
+  fontWeight: 500,
 };
 
 interface Props {
   number: number;
   formula: React.ReactNode;
+  color: string;
 }
 
-const Molecule = ({ number, formula }: Props): JSX.Element => (
-  <Box sx={container}>
-    <Typography variant="h5" sx={numberStyles}>
-      {number !== 0 ? number : ''}
+const Molecule = ({ number, formula, color }: Props): JSX.Element => (
+  <Box sx={{ ...container, color }}>
+    <Typography variant="body2" sx={numberStyles}>
+      {number}
     </Typography>
-    <Typography variant="h5">{formula}</Typography>
+    <Typography variant="h5" sx={formulaStyles}>
+      {formula}
+    </Typography>
   </Box>
 );
 
