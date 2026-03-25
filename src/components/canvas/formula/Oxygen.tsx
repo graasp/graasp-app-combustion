@@ -1,13 +1,9 @@
+import { FORMULA_BY_KEY } from '@/components/formulaByKey';
+
 import Molecule from './Molecule';
 
-const Oxygen = (): JSX.Element => {
-  const OxygenFormula = (
-    <>
-      O<sub>2</sub>
-    </>
-  );
-
-  return <Molecule number={0} formula={OxygenFormula} />;
-};
+const Oxygen = (): JSX.Element => (
+  <Molecule number={0} formula={FORMULA_BY_KEY.oxygen} />
+);
 
 export default Oxygen;

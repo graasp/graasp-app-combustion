@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from 'react';
 import { Box, Switch, Typography } from '@mui/material';
 
 const container = {
-  width: '80%',
+  width: '85%',
   margin: '0 auto',
   marginTop: '1.5em',
 };
