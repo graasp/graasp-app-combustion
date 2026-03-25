@@ -4,7 +4,7 @@ import InteractionBox from './InteractionBox';
 
 const outerContainer = {
   height: '75%',
-  background: '#F3F1EC',
+  //   background: '#F3F1EC',
   opacity: 0.7,
   display: 'flex',
   alignItems: 'center',

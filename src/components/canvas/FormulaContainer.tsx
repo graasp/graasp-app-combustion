@@ -5,7 +5,7 @@ import Formula from './formula/Formula';
 const styles = {
   width: '100%',
   height: '25%',
-  background: '#F3F1EC',
+  // background: '#F3F1EC',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

@@ -1,3 +1,7 @@
 {
-  "translations": {}
+  "translations": {
+    "Kilograms": "Kilograms",
+    "Moles": "Moles",
+    "Units": "Units"
+  }
 }
