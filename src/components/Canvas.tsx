@@ -1,10 +1,10 @@
 import FormulaContainer from './canvas/FormulaContainer';
-import Interaction from './canvas/Interaction';
+import InteractionContainer from './canvas/InteractionContainer';
 
 const Canvas = (): JSX.Element => (
   <div style={{ height: '100%', width: '75vw' }}>
     <FormulaContainer />
-    <Interaction />
+    <InteractionContainer />
   </div>
 );
 

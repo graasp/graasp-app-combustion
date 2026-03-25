@@ -1,10 +1,12 @@
 import { Box } from '@mui/material';
 
+import { CANVAS_BACKGROUND } from '@/constants/css';
+
 import InteractionBox from './InteractionBox';
 
 const outerContainer = {
   height: '75%',
-  //   background: '#F3F1EC',
+  background: CANVAS_BACKGROUND,
   opacity: 0.7,
   display: 'flex',
   alignItems: 'center',
@@ -18,7 +20,7 @@ const innerContainer = {
   justifyContent: 'space-around',
 };
 
-const Interaction = (): JSX.Element => {
+const InteractionContainer = (): JSX.Element => {
   const oxygenHeading = (
     <>
       Volume of O<sub>2</sub> needed
@@ -42,4 +44,4 @@ const Interaction = (): JSX.Element => {
   );
 };
 
-export default Interaction;
+export default InteractionContainer;

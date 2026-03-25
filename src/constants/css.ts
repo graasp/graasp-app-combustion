@@ -1,0 +1,2 @@
+export const CANVAS_BACKGROUND = '#F6FAFE';
+export const SIDE_MENU_BACKGROUND = '#E8EFF4';
