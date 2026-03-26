@@ -14,8 +14,8 @@ const UnitsSwitch = (): JSX.Element => {
 
   return (
     <TwoSidedSwitch
-      title={t('Units')}
-      leftLabel={t('Kilograms')}
+      title="Units:"
+      leftLabel="Kilograms"
       rightLabel={t('Moles')}
       isChecked={units === 'mol'}
       setIsChecked={handleToggle}

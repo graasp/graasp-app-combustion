@@ -1,6 +1,10 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import { Box, Switch, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+
+import { CANVAS_BORDER, HEADING_TEXT, PRIMARY_BLUE } from '@/constants/css';
+
+import CustomSwitch from './CustomSwitch';
 
 const container = {
   width: '85%',
@@ -8,18 +12,27 @@ const container = {
   marginTop: '1.5em',
 };
 
-const titleStyles = { fontWeight: 600 };
+const titleStyles = {
+  fontWeight: 500,
+  marginBottom: '1em',
+  color: HEADING_TEXT,
+};
 
 const innerContainer = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  background: '#eff4f9',
+  border: CANVAS_BORDER,
+  borderRadius: '10px',
+  padding: '20px 20px',
 };
 
 const switchStyles = {
   width: '30%',
   display: 'flex',
   justifyContent: 'center',
+  alignItems: 'center',
 };
 
 const leftLabelStyles = { width: '35%' };
@@ -46,21 +59,27 @@ const TwoSidedSwitch = ({
   setIsChecked,
 }: Props): JSX.Element => (
   <Box sx={container}>
-    <Typography variant="body1" sx={titleStyles}>
-      {title}
+    <Typography variant="body2" sx={titleStyles}>
+      {title.toUpperCase()}
     </Typography>
     <Box sx={innerContainer}>
       <Typography variant="body2" sx={leftLabelStyles}>
         {leftLabel}
       </Typography>
       <Box sx={switchStyles}>
-        <Switch
+        <CustomSwitch
           checked={isChecked}
-          onChange={() => setIsChecked(isChecked)}
-          color="primary"
+          onChange={(event) => setIsChecked(event.target.checked)}
         />
       </Box>
-      <Typography variant="body2" sx={rightLabelStyles}>
+      <Typography
+        variant="body2"
+        sx={{
+          ...rightLabelStyles,
+          color: isChecked ? PRIMARY_BLUE : 'primary',
+          fontWeight: isChecked ? 500 : 'normal',
+        }}
+      >
         {rightLabel}
       </Typography>
     </Box>

@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 
 import { FORMULA_BY_KEY } from '@/components/formulaByKey';
-import { FORMULA_FUEL } from '@/constants/css';
+import { PRIMARY_BLUE } from '@/constants/css';
 
 import FormulaEntity from './FormulaEntity';
 
@@ -19,7 +19,7 @@ const Fuel = (): JSX.Element => (
       number={1}
       formula={FORMULA_BY_KEY.methane}
       caption="Methane"
-      color={FORMULA_FUEL}
+      color={PRIMARY_BLUE}
     />
   </Box>
 );
