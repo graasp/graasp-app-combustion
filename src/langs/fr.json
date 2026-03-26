@@ -1,6 +1,10 @@
 {
   "translations": {
-    "Open side menu": "Ouvrir le menu latéral",
-    "Close side menu": "Fermer le menu latéral"
+    "Kilograms": "Kilograms",
+    "Moles": "Moles",
+    "Units": "Units",
+    "Indicate energy in:": "Indicate energy in:",
+    "Types of light": "Types of light",
+    "Smartphones": "Smartphones"
   }
 }

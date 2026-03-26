@@ -1,11 +1,5 @@
-import { SET_DIMENSIONS } from '../types/app-settings';
-
-type Dimensions = {
-  width: number;
-  height: number;
-};
 export interface appSettingsType {
-  dimensions: Dimensions;
+  placeholder: string;
 }
 
 export interface appSettingsActionType {
@@ -15,17 +9,15 @@ export interface appSettingsActionType {
 }
 
 export const initialAppSettings = {
-  dimensions: { width: 0, height: 0 },
+  placeholder: 'placeholder',
 };
 
 export const appSettingsReducer = (
   state: appSettingsType,
   action: appSettingsActionType,
 ): appSettingsType => {
-  const { type, payload } = action;
+  const { type } = action;
   switch (type) {
-    case SET_DIMENSIONS:
-      return { ...state, dimensions: payload };
     default:
       return state;
   }
