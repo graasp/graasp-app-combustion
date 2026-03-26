@@ -11,7 +11,13 @@ const SideMenu = (): JSX.Element => (
     open
     anchor="right"
     variant="persistent"
-    PaperProps={{ style: { width: '25vw', background: SIDE_MENU_BACKGROUND } }}
+    PaperProps={{
+      style: {
+        width: '25vw',
+        background: SIDE_MENU_BACKGROUND,
+        paddingBottom: '2em',
+      },
+    }}
   >
     <UnitsSwitch />
     <FuelSelect />
