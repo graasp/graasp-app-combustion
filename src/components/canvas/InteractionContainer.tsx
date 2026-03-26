@@ -2,46 +2,34 @@ import { Box } from '@mui/material';
 
 import { CANVAS_BACKGROUND } from '@/constants/css';
 
-import InteractionBox from './InteractionBox';
+import CarbonDioxideBox from './interaction-box/CarbonDioxideBox';
+import EnergyBox from './interaction-box/EnergyBox';
+import OxygenBox from './interaction-box/OxygenBox';
 
 const outerContainer = {
   height: '75%',
   background: CANVAS_BACKGROUND,
-  opacity: 0.7,
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'center',
 };
 
 const innerContainer = {
-  height: '60%',
-  width: '100%',
+  height: '90%',
+  width: '90%',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-around',
+  justifyContent: 'space-between',
 };
 
-const InteractionContainer = (): JSX.Element => {
-  const oxygenHeading = (
-    <>
-      Volume of O<sub>2</sub> needed
-    </>
-  );
-
-  const co2Heading = (
-    <>
-      Volume of CO<sub>2</sub> produced
-    </>
-  );
-
-  return (
-    <Box sx={outerContainer}>
-      <Box sx={innerContainer}>
-        <InteractionBox heading="Energy obtained" subHeading="100 J" />
-        <InteractionBox heading={oxygenHeading} subHeading="100 J" />
-        <InteractionBox heading={co2Heading} subHeading="100 J" />
-      </Box>
+const InteractionContainer = (): JSX.Element => (
+  <Box sx={outerContainer}>
+    <Box sx={innerContainer}>
+      <EnergyBox />
+      <OxygenBox />
+      <CarbonDioxideBox />
     </Box>
-  );
-};
+  </Box>
+);
 
 export default InteractionContainer;
