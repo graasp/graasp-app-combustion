@@ -7,7 +7,7 @@ import EnergyBox from './interaction-box/EnergyBox';
 import OxygenBox from './interaction-box/OxygenBox';
 
 const outerContainer = {
-  height: '75%',
+  height: '67.5%',
   background: CANVAS_BACKGROUND,
   display: 'flex',
   alignItems: 'center',
