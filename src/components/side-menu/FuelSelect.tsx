@@ -1,30 +1,38 @@
 import { Box, RadioGroup, Typography } from '@mui/material';
 
 import { FUELS } from '@/constants/chemistry';
+import { HEADING_TEXT } from '@/constants/css';
 
 import { FORMULA_BY_KEY } from '../formulaByKey';
 import FuelOption from './FuelOption';
 
-const titleStyles = { fontWeight: 600 };
+const containerStyles = {
+  width: '85%',
+  margin: '0 auto',
+  marginTop: '1.5em',
+};
 
-const containerStyles = { width: '85%', margin: '0 auto' };
+const titleStyles = {
+  fontWeight: 500,
+  marginBottom: '1em',
+  color: HEADING_TEXT,
+};
 
 const FuelSelect = (): JSX.Element => (
   <Box sx={containerStyles}>
-    <Typography variant="body1" sx={titleStyles}>
-      Fuel
+    <Typography variant="body2" sx={titleStyles}>
+      FUEL:
     </Typography>
     <Box sx={{ mt: 2 }}>
       <RadioGroup name="fuel-select" defaultValue="option1">
-        {FUELS.map((fuel) => (
+        {FUELS.map(({ value, label, hasFormula }) => (
           <FuelOption
-            key={fuel.value}
-            value={fuel.value}
-            label={fuel.label}
+            key={value}
+            value={value}
+            label={label}
             formula={
-              fuel.hasFormula
-                ? (FORMULA_BY_KEY[fuel.value as keyof typeof FORMULA_BY_KEY] ??
-                  null)
+              hasFormula
+                ? (FORMULA_BY_KEY[value as keyof typeof FORMULA_BY_KEY] ?? null)
                 : null
             }
           />
