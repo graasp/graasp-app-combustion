@@ -29,6 +29,12 @@ export const FUELS = [
     isPureFuel: true,
     atomCount: { carbon: 8, hydrogen: 18 },
   },
+  {
+    label: 'Stearin',
+    id: 'stearin',
+    isPureFuel: true,
+    atomCount: { carbon: 57, hydrogen: 110, oxygen: 6 },
+  },
   { label: 'Paraffin', id: 'paraffin', isPureFuel: false, emoji: '🕯️' },
   { label: 'Wood', id: 'wood', isPureFuel: false, emoji: '🪵' },
   { label: 'Kerosene', id: 'kerosene', isPureFuel: false, emoji: '🛢️' },
