@@ -15,7 +15,7 @@ const EnergyBox = (): JSX.Element => (
     }
     value={3.46}
     secondaryIcon={<BatteryChargingFull sx={{ color: '#006F0D' }} />}
-    secondaryText="200 phone charges"
+    secondaryText="200 1-week phone charges"
     secondaryTextColor="#006F0D"
   />
 );

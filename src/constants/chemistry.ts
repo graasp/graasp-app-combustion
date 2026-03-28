@@ -4,7 +4,7 @@ export const FUELS = [
   { label: 'Propane', id: 'propane', hasFormula: true },
   { label: 'Butane', id: 'butane', hasFormula: true },
   { label: 'Octane', id: 'octane', hasFormula: true },
-  { label: 'Paraffin 🕯️', id: 'paraffin', hasFormula: false },
-  { label: 'Wood 🪵', id: 'wood', hasFormula: false },
-  { label: 'Kerosene 🛢️', id: 'kerosene', hasFormula: false },
+  { label: 'Paraffin', id: 'paraffin', hasFormula: false, emoji: '🕯️' },
+  { label: 'Wood', id: 'wood', hasFormula: false, emoji: '🪵' },
+  { label: 'Kerosene', id: 'kerosene', hasFormula: false, emoji: '🛢️' },
 ];

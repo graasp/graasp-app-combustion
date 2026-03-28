@@ -27,6 +27,7 @@ interface Fuel {
   label: string;
   id: string;
   hasFormula: boolean;
+  emoji?: string;
 }
 
 interface Props {
@@ -34,7 +35,7 @@ interface Props {
 }
 
 const FuelOption = ({ fuel }: Props): JSX.Element => {
-  const { id, label, hasFormula } = fuel;
+  const { id, label, hasFormula, emoji = '' } = fuel;
 
   const formula = hasFormula
     ? FORMULA_BY_KEY[id as keyof typeof FORMULA_BY_KEY]
@@ -47,7 +48,7 @@ const FuelOption = ({ fuel }: Props): JSX.Element => {
       control={<Radio sx={buttonStyles} />}
       label={
         <Typography variant="body2" sx={{ mt: formula ? '3px' : '0' }}>
-          {label} {formula ? '(' : ''}
+          {label} {formula ? '(' : `${'\u00A0'}${emoji}`}
           {formula}
           {formula ? ')' : ''}
         </Typography>

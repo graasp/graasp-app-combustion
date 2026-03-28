@@ -4,6 +4,7 @@ const container = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  height: '50%',
 };
 
 const numberStyles = {
@@ -19,15 +20,18 @@ interface Props {
   number: number;
   formula: React.ReactNode;
   color: string;
+  emoji?: string;
 }
 
-const Molecule = ({ number, formula, color }: Props): JSX.Element => (
+const Molecule = ({ number, formula, color, emoji }: Props): JSX.Element => (
   <Box sx={{ ...container, color }}>
-    <Typography variant="body2" sx={numberStyles}>
-      {number}
-    </Typography>
+    {!emoji ? (
+      <Typography variant="body2" sx={numberStyles}>
+        {number}
+      </Typography>
+    ) : null}
     <Typography variant="h5" sx={formulaStyles}>
-      {formula}
+      {formula || emoji}
     </Typography>
   </Box>
 );

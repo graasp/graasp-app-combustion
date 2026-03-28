@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 import { FORMULA_BY_KEY } from '@/components/formulaByKey';
 import { FUELS } from '@/constants/chemistry';
@@ -10,21 +10,8 @@ import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
 import FormulaEntity from './FormulaEntity';
 
 const container = {
-  border: '1px dashed #22C55E',
-  backgroundColor: '#e9fee6',
-  borderRadius: '10px',
-  padding: '10px 15px',
   width: '10%',
   height: '100%',
-  textAlign: 'center',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-};
-
-const placeholderStyles = {
-  color: '#006F0D',
-  fontWeight: 500,
 };
 
 const Fuel = (): JSX.Element => {
@@ -32,21 +19,17 @@ const Fuel = (): JSX.Element => {
   const { fuel: selectedFuel } = state;
 
   const selectedFuelObj = FUELS.find((fuel) => fuel.id === selectedFuel);
+  const { label = '', id, emoji } = selectedFuelObj || {};
 
   return (
     <Box sx={container}>
-      {selectedFuel ? (
-        <FormulaEntity
-          number={1}
-          formula={FORMULA_BY_KEY.methane}
-          caption={selectedFuelObj?.label || ''}
-          color={PRIMARY_BLUE}
-        />
-      ) : (
-        <Typography variant="body2" sx={placeholderStyles}>
-          SELECT A FUEL
-        </Typography>
-      )}
+      <FormulaEntity
+        number={1}
+        formula={FORMULA_BY_KEY[id as keyof typeof FORMULA_BY_KEY]}
+        emoji={emoji}
+        caption={label}
+        color={PRIMARY_BLUE}
+      />
     </Box>
   );
 };
