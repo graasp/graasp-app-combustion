@@ -5,23 +5,37 @@ import { FORMULA_DEFAULT } from '@/constants/css';
 import Caption from './Caption';
 import Molecule from './Molecule';
 
-const container = { textAlign: 'center' };
+const container = {
+  textAlign: 'center',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
 
 interface Props {
-  number: number;
-  formula: React.ReactNode;
+  coefficient: number;
+  formula?: React.ReactNode;
+  emoji?: string;
   caption: string;
   color?: string;
 }
 
 const FormulaEntity = ({
-  number,
+  coefficient,
   formula,
+  emoji,
   caption,
   color = FORMULA_DEFAULT,
 }: Props): JSX.Element => (
   <Box sx={container}>
-    <Molecule number={number} formula={formula} color={color} />
+    <Molecule
+      coefficient={coefficient}
+      formula={formula}
+      color={color}
+      emoji={emoji}
+    />
     <Caption caption={caption} />
   </Box>
 );

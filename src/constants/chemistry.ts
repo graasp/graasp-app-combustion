@@ -1,10 +1,47 @@
 export const FUELS = [
-  { label: 'Methane', value: 'methane', hasFormula: true },
-  { label: 'Ethanol', value: 'ethanol', hasFormula: true },
-  { label: 'Propane', value: 'propane', hasFormula: true },
-  { label: 'Butane', value: 'butane', hasFormula: true },
-  { label: 'Octane (essence)', value: 'octane', hasFormula: true },
-  { label: 'Paraffin', value: 'paraffin', hasFormula: false },
-  { label: 'Wood', value: 'wood', hasFormula: false },
-  { label: 'Kerosene', value: 'kerosene', hasFormula: false },
+  {
+    label: 'Methane',
+    id: 'methane',
+    isPureFuel: true,
+    atomCount: { carbon: 1, hydrogen: 4 },
+  },
+  {
+    label: 'Ethanol',
+    id: 'ethanol',
+    isPureFuel: true,
+    atomCount: { carbon: 2, hydrogen: 6, oxygen: 1 },
+  },
+  {
+    label: 'Propane',
+    id: 'propane',
+    isPureFuel: true,
+    atomCount: { carbon: 3, hydrogen: 8 },
+  },
+  {
+    label: 'Butane',
+    id: 'butane',
+    isPureFuel: true,
+    atomCount: { carbon: 4, hydrogen: 10 },
+  },
+  {
+    label: 'Octane',
+    id: 'octane',
+    isPureFuel: true,
+    atomCount: { carbon: 8, hydrogen: 18 },
+  },
+  {
+    label: 'Stearin',
+    id: 'stearin',
+    isPureFuel: true,
+    atomCount: { carbon: 57, hydrogen: 110, oxygen: 6 },
+  },
+  { label: 'Paraffin', id: 'paraffin', isPureFuel: false, emoji: '🕯️' },
+  { label: 'Wood', id: 'wood', isPureFuel: false, emoji: '🪵' },
+  { label: 'Kerosene', id: 'kerosene', isPureFuel: false, emoji: '🛢️' },
 ];
+
+export const DEFAULT_COEFFICIENTS = {
+  oxygenCoefficient: 0,
+  carbonDioxideCoefficient: 0,
+  waterCoefficient: 0,
+};

@@ -6,7 +6,7 @@ import Formula from './formula/Formula';
 
 const styles = {
   width: '100%',
-  height: '25%',
+  height: '20%',
   background: CANVAS_BACKGROUND,
   display: 'flex',
   justifyContent: 'center',

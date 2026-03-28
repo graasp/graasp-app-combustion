@@ -1,9 +1,13 @@
+import { useContext } from 'react';
+
 import { Box, RadioGroup, Typography } from '@mui/material';
 
+import { setFuel, setUnits } from '@/actions/app-settings';
 import { FUELS } from '@/constants/chemistry';
 import { HEADING_TEXT } from '@/constants/css';
+import { KILOGRAMS } from '@/constants/units';
+import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
 
-import { FORMULA_BY_KEY } from '../formulaByKey';
 import FuelOption from './FuelOption';
 
 const containerStyles = {
@@ -18,28 +22,30 @@ const titleStyles = {
   color: HEADING_TEXT,
 };
 
-const FuelSelect = (): JSX.Element => (
-  <Box sx={containerStyles}>
-    <Typography variant="body2" sx={titleStyles}>
-      FUEL:
-    </Typography>
-    <Box sx={{ mt: 2 }}>
-      <RadioGroup name="fuel-select" defaultValue="option1">
-        {FUELS.map(({ value, label, hasFormula }) => (
-          <FuelOption
-            key={value}
-            value={value}
-            label={label}
-            formula={
-              hasFormula
-                ? (FORMULA_BY_KEY[value as keyof typeof FORMULA_BY_KEY] ?? null)
-                : null
-            }
-          />
-        ))}
-      </RadioGroup>
+const FuelSelect = (): JSX.Element => {
+  const { dispatch, state } = useContext(AppSettingsContext);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    dispatch(setFuel(event.target.value));
+    const selectedFuel = FUELS.find((fuel) => fuel.id === event.target.value);
+    if (!selectedFuel?.isPureFuel) {
+      dispatch(setUnits(KILOGRAMS));
+    }
+  };
+  return (
+    <Box sx={containerStyles}>
+      <Typography variant="body2" sx={titleStyles}>
+        FUEL:
+      </Typography>
+      <Box sx={{ mt: 2 }}>
+        <RadioGroup value={state.fuel} onChange={handleChange}>
+          {FUELS.map((fuel, index) => (
+            <FuelOption fuel={fuel} key={index} />
+          ))}
+        </RadioGroup>
+      </Box>
     </Box>
-  </Box>
-);
+  );
+};
 
 export default FuelSelect;
