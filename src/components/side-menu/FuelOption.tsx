@@ -26,7 +26,7 @@ const buttonStyles = {
 interface Fuel {
   label: string;
   id: string;
-  hasFormula: boolean;
+  isPureFuel: boolean;
   emoji?: string;
 }
 
@@ -35,9 +35,9 @@ interface Props {
 }
 
 const FuelOption = ({ fuel }: Props): JSX.Element => {
-  const { id, label, hasFormula, emoji = '' } = fuel;
+  const { id, label, isPureFuel, emoji = '' } = fuel;
 
-  const formula = hasFormula
+  const formula = isPureFuel
     ? FORMULA_BY_KEY[id as keyof typeof FORMULA_BY_KEY]
     : null;
 

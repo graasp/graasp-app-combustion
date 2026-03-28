@@ -35,8 +35,8 @@ const FuelSelect = (): JSX.Element => {
       </Typography>
       <Box sx={{ mt: 2 }}>
         <RadioGroup value={state.fuel} onChange={handleChange}>
-          {FUELS.map((fuel) => (
-            <FuelOption fuel={fuel} />
+          {FUELS.map((fuel, index) => (
+            <FuelOption fuel={fuel} key={index} />
           ))}
         </RadioGroup>
       </Box>

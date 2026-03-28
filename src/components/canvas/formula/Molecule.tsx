@@ -6,28 +6,26 @@ const container = {
   alignItems: 'center',
   height: '50%',
 };
-
-const numberStyles = {
-  marginRight: '5px',
-  fontWeight: 500,
-};
-
-const formulaStyles = {
-  fontWeight: 500,
-};
+const coefficientStyles = { marginRight: '5px', fontWeight: 500 };
+const formulaStyles = { fontWeight: 500 };
 
 interface Props {
-  number: number;
+  coefficient: number;
   formula: React.ReactNode;
   color: string;
   emoji?: string;
 }
 
-const Molecule = ({ number, formula, color, emoji }: Props): JSX.Element => (
+const Molecule = ({
+  coefficient,
+  formula,
+  color,
+  emoji,
+}: Props): JSX.Element => (
   <Box sx={{ ...container, color }}>
     {!emoji ? (
-      <Typography variant="body2" sx={numberStyles}>
-        {number}
+      <Typography variant="body2" sx={coefficientStyles}>
+        {coefficient}
       </Typography>
     ) : null}
     <Typography variant="h5" sx={formulaStyles}>

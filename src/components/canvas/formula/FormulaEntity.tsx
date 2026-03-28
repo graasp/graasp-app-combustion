@@ -15,7 +15,7 @@ const container = {
 };
 
 interface Props {
-  number: number;
+  coefficient: number;
   formula?: React.ReactNode;
   emoji?: string;
   caption: string;
@@ -23,14 +23,19 @@ interface Props {
 }
 
 const FormulaEntity = ({
-  number,
+  coefficient,
   formula,
   emoji,
   caption,
   color = FORMULA_DEFAULT,
 }: Props): JSX.Element => (
   <Box sx={container}>
-    <Molecule number={number} formula={formula} color={color} emoji={emoji} />
+    <Molecule
+      coefficient={coefficient}
+      formula={formula}
+      color={color}
+      emoji={emoji}
+    />
     <Caption caption={caption} />
   </Box>
 );

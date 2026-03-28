@@ -24,7 +24,7 @@ const Fuel = (): JSX.Element => {
   return (
     <Box sx={container}>
       <FormulaEntity
-        number={1}
+        coefficient={1}
         formula={FORMULA_BY_KEY[id as keyof typeof FORMULA_BY_KEY]}
         emoji={emoji}
         caption={label}
