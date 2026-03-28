@@ -2,6 +2,8 @@ import { FormControlLabel, Radio, Typography } from '@mui/material';
 
 import { CANVAS_BORDER, PRIMARY_BLUE } from '@/constants/css';
 
+import { FORMULA_BY_KEY } from '../formulaByKey';
+
 const formStyles = {
   background: '#f4f7fa',
   border: CANVAS_BORDER,
@@ -21,25 +23,37 @@ const buttonStyles = {
   },
 };
 
-interface Props {
-  value: string;
+interface Fuel {
   label: string;
-  formula: React.ReactNode | null;
+  id: string;
+  hasFormula: boolean;
 }
 
-const FuelOption = ({ value, label, formula }: Props): JSX.Element => (
-  <FormControlLabel
-    value={value}
-    sx={formStyles}
-    control={<Radio sx={buttonStyles} />}
-    label={
-      <Typography variant="body2" sx={{ mt: formula ? '3px' : '0' }}>
-        {label} {formula ? '(' : ''}
-        {formula}
-        {formula ? ')' : ''}
-      </Typography>
-    }
-  />
-);
+interface Props {
+  fuel: Fuel;
+}
+
+const FuelOption = ({ fuel }: Props): JSX.Element => {
+  const { id, label, hasFormula } = fuel;
+
+  const formula = hasFormula
+    ? FORMULA_BY_KEY[id as keyof typeof FORMULA_BY_KEY]
+    : null;
+
+  return (
+    <FormControlLabel
+      value={id}
+      sx={formStyles}
+      control={<Radio sx={buttonStyles} />}
+      label={
+        <Typography variant="body2" sx={{ mt: formula ? '3px' : '0' }}>
+          {label} {formula ? '(' : ''}
+          {formula}
+          {formula ? ')' : ''}
+        </Typography>
+      }
+    />
+  );
+};
 
 export default FuelOption;

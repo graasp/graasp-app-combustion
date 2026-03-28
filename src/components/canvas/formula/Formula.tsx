@@ -21,7 +21,7 @@ const outerContainer = {
 };
 
 const innerContainer = {
-  height: '60%',
+  height: '80%',
   width: '90%',
   display: 'flex',
   alignItems: 'center',
