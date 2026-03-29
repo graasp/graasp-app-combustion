@@ -7,7 +7,7 @@ import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
 
 import InteractionBox from './InteractionBox';
 
-const EnergyBox = (): JSX.Element => {
+const EnergyBox = ({ value }: { value: number }): JSX.Element => {
   const { state } = useContext(AppSettingsContext);
   const { units } = state;
 
@@ -20,7 +20,7 @@ const EnergyBox = (): JSX.Element => {
           ΔH<sub>comb</sub> [kJ/{units}]
         </>
       }
-      value={3.46}
+      value={value}
       secondaryIcon={<BatteryChargingFull sx={{ color: '#006F0D' }} />}
       secondaryText="200 1-week phone charges"
       secondaryTextColor="#006F0D"

@@ -2,7 +2,7 @@ import { Co2, SportsSoccer } from '@mui/icons-material';
 
 import InteractionBox from './InteractionBox';
 
-const CarbonDioxideBox = (): JSX.Element => (
+const CarbonDioxideBox = ({ value }: { value: number }): JSX.Element => (
   <InteractionBox
     icon={<Co2 sx={{ color: '#00687e' }} />}
     mainText={
@@ -15,7 +15,7 @@ const CarbonDioxideBox = (): JSX.Element => (
         V<sub>CO2</sub> [L]
       </>
     }
-    value={7.89}
+    value={value}
     secondaryIcon={<SportsSoccer sx={{ color: '#ab2f2f' }} />}
     secondaryText="5950 footballs"
     secondaryTextColor="#ab2f2f"
