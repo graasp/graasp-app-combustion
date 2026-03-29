@@ -1,5 +1,7 @@
 import { Box, Typography } from '@mui/material';
 
+import { formatNumber } from '@/utils/chemistry';
+
 const styles = {
   height: '50%',
   width: '100%',
@@ -15,7 +17,7 @@ interface Props {
 const MiddleBox = ({ value }: Props): JSX.Element => (
   <Box sx={styles}>
     <Typography variant="h3" sx={{ fontWeight: 500 }}>
-      {value}
+      {formatNumber(value)}
     </Typography>
   </Box>
 );

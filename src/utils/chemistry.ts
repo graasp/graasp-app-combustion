@@ -23,3 +23,6 @@ export const computeCoefficients = (
 
   return { oxygenCoefficient, carbonDioxideCoefficient, waterCoefficient };
 };
+
+export const formatNumber = (value: number): string =>
+  Math.round(value).toLocaleString('en-US');
