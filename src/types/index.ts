@@ -1,3 +1,5 @@
+import { KILOGRAMS, MOLES } from '@/constants/units';
+
 export interface Fuel {
   label: string;
   id: string;
@@ -7,5 +9,15 @@ export interface Fuel {
     carbon: number;
     hydrogen: number;
     oxygen?: number;
+  };
+  [KILOGRAMS]: {
+    energy: number;
+    volumeO2: number;
+    volumeCo2: number;
+  };
+  [MOLES]?: {
+    energy: number;
+    volumeO2: number;
+    volumeCo2: number;
   };
 }
