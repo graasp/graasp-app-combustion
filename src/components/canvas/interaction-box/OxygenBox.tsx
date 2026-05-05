@@ -1,6 +1,7 @@
 import { Air, SportsSoccer } from '@mui/icons-material';
 
 import { O2_GREEN } from '@/constants/css';
+import { formatNumber } from '@/utils/chemistry';
 
 import InteractionBox from './InteractionBox';
 
@@ -14,7 +15,7 @@ const OxygenBox = ({ value }: { value: number }): JSX.Element => (
     }
     subText={
       <>
-        V<sub>O2</sub> [L]
+        V(O<sub>2</sub>) = {formatNumber(value)} L
       </>
     }
     value={value}

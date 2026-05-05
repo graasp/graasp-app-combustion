@@ -1,12 +1,13 @@
 import { Co2, SportsSoccer } from '@mui/icons-material';
 
 import { CO2_RED } from '@/constants/css';
+import { formatNumber } from '@/utils/chemistry';
 
 import InteractionBox from './InteractionBox';
 
 const CarbonDioxideBox = ({ value }: { value: number }): JSX.Element => (
   <InteractionBox
-    icon={<Co2 sx={{ color: CO2_RED }} />}
+    icon={<Co2 sx={{ color: CO2_RED, fontSize: "2.2rem" }} />}
     mainText={
       <>
         VOLUME OF CO<sub>2</sub> PRODUCED
@@ -14,7 +15,7 @@ const CarbonDioxideBox = ({ value }: { value: number }): JSX.Element => (
     }
     subText={
       <>
-        V<sub>CO2</sub> [L]
+        V(CO<sub>2</sub>) = {formatNumber(value)} L
       </>
     }
     value={value}

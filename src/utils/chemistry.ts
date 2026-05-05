@@ -25,4 +25,4 @@ export const computeCoefficients = (
 };
 
 export const formatNumber = (value: number): string =>
-  Math.round(value).toLocaleString('en-US');
+  Math.round(value).toLocaleString('en-US').replaceAll(',', "'");
