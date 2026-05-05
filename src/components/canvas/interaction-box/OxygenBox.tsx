@@ -1,10 +1,12 @@
 import { Air, SportsSoccer } from '@mui/icons-material';
 
+import { O2_GREEN } from '@/constants/css';
+
 import InteractionBox from './InteractionBox';
 
 const OxygenBox = ({ value }: { value: number }): JSX.Element => (
   <InteractionBox
-    icon={<Air sx={{ color: '#006F0D' }} />}
+    icon={<Air sx={{ color: O2_GREEN }} />}
     mainText={
       <>
         VOLUME OF O<sub>2</sub> NEEDED
@@ -16,9 +18,9 @@ const OxygenBox = ({ value }: { value: number }): JSX.Element => (
       </>
     }
     value={value}
-    secondaryIcon={<SportsSoccer sx={{ color: '#273b47' }} />}
+    secondaryIcon={<SportsSoccer sx={{ color: O2_GREEN }} />}
     secondaryText="1250 footballs"
-    secondaryTextColor="#273b47"
+    secondaryTextColor={O2_GREEN}
   />
 );
 
