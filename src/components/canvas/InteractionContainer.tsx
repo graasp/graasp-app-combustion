@@ -37,13 +37,14 @@ const InteractionContainer = (): JSX.Element => {
     volumeO2 = 0,
     volumeCo2 = 0,
   } = selectedFuelObj?.[units as typeof KILOGRAMS | typeof MOLES] || {};
+  const { footballs } = selectedFuelObj || {};
 
   return (
     <Box sx={outerContainer}>
       <Box sx={innerContainer}>
         <EnergyBox value={energy} />
-        <OxygenBox value={volumeO2} />
-        <CarbonDioxideBox value={volumeCo2} />
+        <OxygenBox value={volumeO2} footballs={footballs?.o2 || 0} />
+        <CarbonDioxideBox value={volumeCo2} footballs={footballs?.co2 || 0} />
       </Box>
     </Box>
   );

@@ -5,7 +5,13 @@ import { formatNumber } from '@/utils/chemistry';
 
 import InteractionBox from './InteractionBox';
 
-const OxygenBox = ({ value }: { value: number }): JSX.Element => (
+const OxygenBox = ({
+  value,
+  footballs,
+}: {
+  value: number;
+  footballs: number;
+}): JSX.Element => (
   <InteractionBox
     icon={<Air sx={{ color: O2_GREEN }} />}
     mainText={
@@ -15,12 +21,16 @@ const OxygenBox = ({ value }: { value: number }): JSX.Element => (
     }
     subText={
       <>
-        V(O<sub>2</sub>) = {formatNumber(value)} L
+        V
+        <sub>
+          O<sub>2</sub>
+        </sub>{' '}
+        = {formatNumber(value)} L
       </>
     }
     value={value}
-    secondaryIcon={<SportsSoccer sx={{ color: O2_GREEN }} />}
-    secondaryText="1250 footballs"
+    secondaryIcon={footballs ? <SportsSoccer sx={{ color: O2_GREEN }} /> : null}
+    secondaryText={footballs ? `${formatNumber(footballs)} footballs` : ''}
     secondaryTextColor={O2_GREEN}
   />
 );
