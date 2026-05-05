@@ -3,6 +3,9 @@ import { useContext } from 'react';
 import { Typography } from '@mui/material';
 
 import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
+import { toSimplestFractionTuple } from '@/utils/math';
+
+import Fraction from './Fraction';
 
 const coefficientStyles = { marginRight: '5px', fontWeight: 500 };
 
@@ -31,8 +34,13 @@ const Coefficient = ({
 
   if (emoji) return null;
 
+  if (!Number.isInteger(coefficient)) {
+    const [numerator, denominator] = toSimplestFractionTuple(coefficient);
+    return <Fraction numerator={numerator} denominator={denominator} />;
+  }
+
   return (
-    <Typography variant="body2" sx={coefficientStyles}>
+    <Typography variant="h5" sx={coefficientStyles}>
       {coefficient}
     </Typography>
   );

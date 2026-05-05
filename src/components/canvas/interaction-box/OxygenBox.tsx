@@ -1,10 +1,19 @@
 import { Air, SportsSoccer } from '@mui/icons-material';
 
+import { O2_GREEN } from '@/constants/css';
+import { formatNumber } from '@/utils/chemistry';
+
 import InteractionBox from './InteractionBox';
 
-const OxygenBox = ({ value }: { value: number }): JSX.Element => (
+const OxygenBox = ({
+  value,
+  footballs,
+}: {
+  value: number;
+  footballs: number;
+}): JSX.Element => (
   <InteractionBox
-    icon={<Air sx={{ color: '#006F0D' }} />}
+    icon={<Air sx={{ color: O2_GREEN }} />}
     mainText={
       <>
         VOLUME OF O<sub>2</sub> NEEDED
@@ -12,13 +21,17 @@ const OxygenBox = ({ value }: { value: number }): JSX.Element => (
     }
     subText={
       <>
-        V<sub>O2</sub> [L]
+        V
+        <sub>
+          O<sub>2</sub>
+        </sub>{' '}
+        = {formatNumber(value)} L
       </>
     }
     value={value}
-    secondaryIcon={<SportsSoccer sx={{ color: '#273b47' }} />}
-    secondaryText="1250 footballs"
-    secondaryTextColor="#273b47"
+    secondaryIcon={footballs ? <SportsSoccer sx={{ color: O2_GREEN }} /> : null}
+    secondaryText={footballs ? `${formatNumber(footballs)} footballs` : ''}
+    secondaryTextColor={O2_GREEN}
   />
 );
 

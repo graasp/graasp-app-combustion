@@ -1,5 +1,5 @@
 import { FORMULA_BY_KEY } from '@/components/formulaByKey';
-import { FORMULA_OXYGEN } from '@/constants/css';
+import { O2_GREEN } from '@/constants/css';
 
 import FormulaEntity from './FormulaEntity';
 
@@ -7,8 +7,8 @@ const Oxygen = ({ coefficient }: { coefficient: number }): JSX.Element => (
   <FormulaEntity
     coefficient={coefficient}
     formula={FORMULA_BY_KEY.oxygen}
-    caption="Oxygen"
-    color={FORMULA_OXYGEN}
+    caption="Dioxygen"
+    color={O2_GREEN}
   />
 );
 
