@@ -35,12 +35,13 @@ const switchStyles = {
   alignItems: 'center',
 };
 
-const leftLabelStyles = { width: '35%' };
+const leftLabelStyles = { width: '35%', fontSize: '0.825rem' };
 
 const rightLabelStyles = {
   width: '35%',
   display: 'flex',
   justifyContent: 'flex-end',
+  fontSize: '0.825rem',
 };
 
 interface Props {
@@ -65,9 +66,7 @@ const TwoSidedSwitch = ({
       {title.toUpperCase()}
     </Typography>
     <Box sx={{ ...innerContainer, opacity: disabled ? 0.5 : 1 }}>
-      <Typography variant="body2" sx={leftLabelStyles}>
-        {leftLabel}
-      </Typography>
+      <Typography sx={leftLabelStyles}>{leftLabel}</Typography>
       <Box sx={switchStyles}>
         <CustomSwitch
           checked={isChecked}
@@ -76,7 +75,6 @@ const TwoSidedSwitch = ({
         />
       </Box>
       <Typography
-        variant="body2"
         sx={{
           ...rightLabelStyles,
           color: isChecked ? PRIMARY_BLUE : 'primary',
