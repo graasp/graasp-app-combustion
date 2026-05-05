@@ -19,7 +19,7 @@ const subtitleStyles = { color: '#8f969a' };
 const Title = (): JSX.Element => (
   <Box sx={container}>
     <Typography variant="h5" sx={titleStyles}>
-      Hydrocarbon Combustion Analysis
+      Combustion Thermochemistry
     </Typography>
     <Typography variant="body2" sx={subtitleStyles}>
       A Stoichiometric Simulation

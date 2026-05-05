@@ -7,7 +7,7 @@ const Oxygen = ({ coefficient }: { coefficient: number }): JSX.Element => (
   <FormulaEntity
     coefficient={coefficient}
     formula={FORMULA_BY_KEY.oxygen}
-    caption="Oxygen"
+    caption="Dioxygen"
     color={FORMULA_OXYGEN}
   />
 );

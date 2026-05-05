@@ -32,7 +32,7 @@ const Coefficient = ({
   if (emoji) return null;
 
   return (
-    <Typography variant="body2" sx={coefficientStyles}>
+    <Typography variant="h5" sx={coefficientStyles}>
       {coefficient}
     </Typography>
   );
