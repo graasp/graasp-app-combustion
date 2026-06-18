@@ -1,5 +1,5 @@
-export const CANVAS_BACKGROUND = '#F6FAFE';
-export const SIDE_MENU_BACKGROUND = '#E8EFF4';
+export const CANVAS_BACKGROUND = '#EEF4F9';
+export const SIDE_MENU_BACKGROUND = '#DEE8EF';
 export const PRIMARY_BLUE = '#005EB8';
 export const FORMULA_DEFAULT = '#004761';
 export const FORMULA_SYMBOL = '#6c777d';
