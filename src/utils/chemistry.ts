@@ -17,9 +17,9 @@ export const computeCoefficients = (
   const { atomCount } = selectedFuel;
   const { carbon, hydrogen, oxygen = 0 } = atomCount;
 
-  const oxygenCoefficient = (2 * carbon + hydrogen / 2 - oxygen) / 2;
+  const oxygenCoefficient = carbon ? (2 * carbon + hydrogen / 2 - oxygen) / 2 : oxygen;
   const carbonDioxideCoefficient = carbon;
-  const waterCoefficient = hydrogen / 2;
+  const waterCoefficient =  hydrogen / 2;
 
   return { oxygenCoefficient, carbonDioxideCoefficient, waterCoefficient };
 };
