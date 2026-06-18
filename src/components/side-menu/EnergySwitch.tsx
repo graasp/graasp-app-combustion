@@ -16,7 +16,7 @@ const EnergySwitch = (): JSX.Element => {
     <TwoSidedSwitch
       title={t('Indicate energy in:')}
       leftLabel={t('Device charges')}
-      rightLabel={t('Heating water')}
+      rightLabel={t('Heating water (20°C → 40°C)')}
       isChecked={energy === 'water'}
       setIsChecked={handleToggle}
     />
