@@ -13,7 +13,7 @@ const CarbonDioxideBox = ({
   footballs: number;
 }): JSX.Element => (
   <InteractionBox
-    icon={<Co2 sx={{ color: CO2_RED, fontSize: '2.2rem' }} />}
+    icon={<Co2 sx={{ color: CO2_RED, fontSize: '2.7rem' }} />}
     mainText={
       <>
         VOLUME OF CO<sub>2</sub> PRODUCED

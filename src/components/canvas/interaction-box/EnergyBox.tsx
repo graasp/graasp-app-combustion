@@ -14,7 +14,7 @@ const EnergyBox = ({ value }: { value: number }): JSX.Element => {
 
   return (
     <InteractionBox
-      icon={<Bolt sx={{ color: PRIMARY_BLUE }} />}
+      icon={<Bolt sx={{ color: PRIMARY_BLUE, fontSize: '2.2rem' }} />}
       mainText="ENERGY OBTAINED"
       subText={
         <>

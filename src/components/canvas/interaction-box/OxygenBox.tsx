@@ -13,7 +13,7 @@ const OxygenBox = ({
   footballs: number;
 }): JSX.Element => (
   <InteractionBox
-    icon={<Air sx={{ color: O2_GREEN }} />}
+    icon={<Air sx={{ color: O2_GREEN, fontSize: '2rem' }} />}
     mainText={
       <>
         VOLUME OF O<sub>2</sub> NEEDED
