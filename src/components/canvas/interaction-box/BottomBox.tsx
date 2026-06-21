@@ -16,18 +16,23 @@ const textStyles = {
 };
 
 interface Props {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   text: string;
   color: string;
+  isEmpty: boolean;
 }
 
-const BottomBox = ({ icon, text, color }: Props): JSX.Element => (
-  <Box sx={container}>
-    {icon}
-    <Typography variant="body2" sx={{ color, ...textStyles }}>
-      {text}
-    </Typography>
-  </Box>
-);
+const BottomBox = ({ icon, text, color, isEmpty }: Props): JSX.Element => {
+  if (isEmpty) return <Box sx={container} />;
+
+  return (
+    <Box sx={container}>
+      <Typography variant="body2" sx={{ color, ...textStyles }}>
+        {text}
+      </Typography>
+      {icon}
+    </Box>
+  );
+};
 
 export default BottomBox;

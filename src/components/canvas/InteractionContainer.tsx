@@ -2,8 +2,9 @@ import { useContext } from 'react';
 
 import { Box } from '@mui/material';
 
-import { FUELS } from '@/constants/chemistry';
 import { CANVAS_BACKGROUND } from '@/constants/css';
+import { FUELS } from '@/constants/fuels';
+import { EMPTY_FUEL_OBJECT } from '@/constants/fuels/empty';
 import { KILOGRAMS, MOLES } from '@/constants/units';
 import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
 
@@ -32,19 +33,21 @@ const InteractionContainer = (): JSX.Element => {
   const { fuel: selectedFuel, units } = state;
 
   const selectedFuelObj = FUELS.find((fuel) => fuel.id === selectedFuel);
-  const {
-    energy = 0,
-    volumeO2 = 0,
-    volumeCo2 = 0,
-  } = selectedFuelObj?.[units as typeof KILOGRAMS | typeof MOLES] || {};
-  const { footballs } = selectedFuelObj || {};
+  const { energy, oxygen, carbonDioxide } =
+    selectedFuelObj?.[units as typeof KILOGRAMS | typeof MOLES] ||
+    EMPTY_FUEL_OBJECT;
+
+  const isEmpty = selectedFuel === '';
 
   return (
     <Box sx={outerContainer}>
       <Box sx={innerContainer}>
-        <EnergyBox value={energy} />
-        <OxygenBox value={volumeO2} footballs={footballs?.o2 || 0} />
-        <CarbonDioxideBox value={volumeCo2} footballs={footballs?.co2 || 0} />
+        <EnergyBox energy={energy} isEmpty={isEmpty} />
+        <OxygenBox oxygen={oxygen} isEmpty={isEmpty} />
+        <CarbonDioxideBox
+          carbonDioxide={carbonDioxide}
+          isEmpty={isEmpty || selectedFuel === 'hydrogen'}
+        />
       </Box>
     </Box>
   );

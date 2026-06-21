@@ -21,29 +21,32 @@ interface Props {
   icon: React.ReactNode;
   mainText: string | React.ReactNode;
   subText: React.ReactNode;
-  value: number;
+  isEmpty: boolean;
   secondaryIcon: React.ReactNode;
-  secondaryText: string;
-  secondaryTextColor: string;
+  tertiaryIcon?: React.ReactNode;
+  tertiaryText: string;
+  tertiaryTextColor: string;
 }
 
 const InteractionBox = ({
   icon,
   mainText,
   subText,
-  value,
+  isEmpty,
   secondaryIcon,
-  secondaryText,
-  secondaryTextColor,
+  tertiaryIcon,
+  tertiaryText,
+  tertiaryTextColor,
 }: Props): JSX.Element => (
-  <Box sx={container}>
+  <Box sx={{ ...container, opacity: isEmpty ? 0.5 : 1 }}>
     <TopBox icon={icon} mainText={mainText} subText={subText} />
-    <MiddleBox value={value} />
+    <MiddleBox isEmpty={isEmpty} icon={secondaryIcon} />
     <Divider sx={{ width: '80%' }} />
     <BottomBox
-      icon={secondaryIcon}
-      text={secondaryText}
-      color={secondaryTextColor}
+      text={tertiaryText}
+      color={tertiaryTextColor}
+      icon={tertiaryIcon || null}
+      isEmpty={isEmpty}
     />
   </Box>
 );

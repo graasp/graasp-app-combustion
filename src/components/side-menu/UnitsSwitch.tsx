@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { t } from 'i18next';
 
 import { setUnits } from '@/actions/app-settings';
-import { FUELS } from '@/constants/chemistry';
+import { FUELS } from '@/constants/fuels';
 import { KILOGRAMS, MOLES } from '@/constants/units';
 import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
 

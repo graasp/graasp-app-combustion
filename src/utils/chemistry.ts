@@ -1,4 +1,4 @@
-import { DEFAULT_COEFFICIENTS } from '@/constants/chemistry';
+import { DEFAULT_COEFFICIENTS } from '@/constants/fuels';
 import { Fuel } from '@/types';
 
 export const computeCoefficients = (

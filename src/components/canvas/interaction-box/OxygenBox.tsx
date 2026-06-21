@@ -1,18 +1,22 @@
 import { Air, SportsSoccer } from '@mui/icons-material';
 
+import { GAS_IMAGE_BY_KEY } from '@/components/gasImageByKey';
 import { O2_GREEN } from '@/constants/css';
+import { GasObjectType } from '@/types';
 import { formatNumber } from '@/utils/chemistry';
+import { formatAnimalCount } from '@/utils/text';
 
 import InteractionBox from './InteractionBox';
 
 const OxygenBox = ({
-  value,
-  footballs,
+  oxygen,
+  isEmpty,
 }: {
-  value: number;
-  footballs: number;
+  oxygen: GasObjectType;
+  isEmpty: boolean;
 }): JSX.Element => (
   <InteractionBox
+    isEmpty={isEmpty}
     icon={<Air sx={{ color: O2_GREEN, fontSize: '2rem' }} />}
     mainText={
       <>
@@ -25,13 +29,13 @@ const OxygenBox = ({
         <sub>
           O<sub>2</sub>
         </sub>{' '}
-        = {formatNumber(value)} L
+        = {formatNumber(oxygen.value)} L
       </>
     }
-    value={value}
-    secondaryIcon={footballs ? <SportsSoccer sx={{ color: O2_GREEN }} /> : null}
-    secondaryText={footballs ? `${formatNumber(footballs)} footballs` : ''}
-    secondaryTextColor={O2_GREEN}
+    secondaryIcon={GAS_IMAGE_BY_KEY[oxygen.animal.type.id]}
+    tertiaryText={`${formatAnimalCount(oxygen.animal)}, or ~${Math.round(oxygen.footballs)} footballs${'\u00A0'}`}
+    tertiaryTextColor={O2_GREEN}
+    tertiaryIcon={<SportsSoccer sx={{ color: O2_GREEN, fontSize: '1.3rem' }} />}
   />
 );
 

@@ -2,8 +2,8 @@ import { useContext } from 'react';
 
 import { Box } from '@mui/material';
 
-import { FUELS } from '@/constants/chemistry';
 import { CANVAS_BORDER } from '@/constants/css';
+import { FUELS } from '@/constants/fuels';
 import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
 import { Fuel as FuelType } from '@/types';
 import { computeCoefficients } from '@/utils/chemistry';
