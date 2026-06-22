@@ -1,8 +1,8 @@
 import {
   BUCKET,
-  DONKEY,
   ELECTRIC_BIKE,
   ELECTRIC_CAR,
+  HORSE,
   KILOGRAMS,
   MILK_COW,
   MOLES,
@@ -40,7 +40,7 @@ export const OCTANE = {
     },
     oxygen: {
       value: 306.0,
-      animal: { type: DONKEY, num: 1 },
+      animal: { type: HORSE, num: 1 },
       footballs: 55.63,
     },
     carbonDioxide: {

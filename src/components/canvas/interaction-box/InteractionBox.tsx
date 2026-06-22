@@ -26,6 +26,7 @@ interface Props {
   tertiaryIcon?: React.ReactNode;
   tertiaryText: string;
   tertiaryTextColor: string;
+  iconCount: number;
 }
 
 const InteractionBox = ({
@@ -37,10 +38,11 @@ const InteractionBox = ({
   tertiaryIcon,
   tertiaryText,
   tertiaryTextColor,
+  iconCount,
 }: Props): JSX.Element => (
   <Box sx={{ ...container, opacity: isEmpty ? 0.5 : 1 }}>
     <TopBox icon={icon} mainText={mainText} subText={subText} />
-    <MiddleBox isEmpty={isEmpty} icon={secondaryIcon} />
+    <MiddleBox isEmpty={isEmpty} icon={secondaryIcon} iconCount={iconCount} />
     <Divider sx={{ width: '80%' }} />
     <BottomBox
       text={tertiaryText}

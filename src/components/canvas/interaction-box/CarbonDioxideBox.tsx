@@ -3,8 +3,8 @@ import { Co2, SportsSoccer } from '@mui/icons-material';
 import { GAS_IMAGE_BY_KEY } from '@/components/gasImageByKey';
 import { CO2_RED } from '@/constants/css';
 import { GasObjectType } from '@/types';
+import { formatAnimalCount } from '@/utils';
 import { formatNumber } from '@/utils/chemistry';
-import { formatAnimalCount } from '@/utils/text';
 
 import InteractionBox from './InteractionBox';
 
@@ -36,6 +36,7 @@ const CarbonDioxideBox = ({
     tertiaryIcon={<SportsSoccer sx={{ color: CO2_RED, fontSize: '1.3rem' }} />}
     tertiaryText={`${formatAnimalCount(carbonDioxide.animal)}, or ~${Math.round(carbonDioxide.footballs)} footballs${'\u00A0'}`}
     tertiaryTextColor={CO2_RED}
+    iconCount={carbonDioxide.animal.num}
   />
 );
 

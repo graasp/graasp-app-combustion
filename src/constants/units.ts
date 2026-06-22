@@ -12,5 +12,5 @@ export const CAT = { label: 'cat', id: 'cat' };
 export const ELEPHANT = { label: 'elephant', id: 'elephant' };
 export const SHEEP = { label: 'sheep', id: 'sheep' };
 export const MILK_COW = { label: 'cow', id: 'milk-cow' };
-export const DONKEY = { label: 'donkey', id: 'donkey' };
+export const HORSE = { label: 'horse', id: 'horse' };
 export const PIG = { label: 'pig', id: 'pig' };

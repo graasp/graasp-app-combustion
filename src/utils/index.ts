@@ -23,3 +23,14 @@ export const formatEnergyDisplay = (
     return `${numItems} ${label} ${isSingleItem ? 'charge' : 'charges'}`;
   return `Heating ${numItems} ${label}${isSingleItem ? '' : 's'} ${isJacuzzi ? '' : 'of water'}`;
 };
+
+export const generateOffsets = (
+  iconCount: number,
+): { bottom: number; left: number; zIndex: number }[] => {
+  const adjustedIconCount = Math.round(iconCount);
+  return new Array(adjustedIconCount).fill(null).map((_, i) => ({
+    bottom: i * 12,
+    left: i * 16,
+    zIndex: adjustedIconCount - i,
+  }));
+};

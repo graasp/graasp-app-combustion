@@ -1,14 +1,5 @@
-import {
-  Bathtub,
-  Blender,
-  ElectricBike,
-  ElectricCar,
-  HotTub,
-  LocalDrink,
-  Smartphone,
-} from '@mui/icons-material';
+import { Typography } from '@mui/material';
 
-import { PRIMARY_BLUE } from '@/constants/css';
 import {
   BUCKET,
   ELECTRIC_BIKE,
@@ -20,17 +11,11 @@ import {
 } from '@/constants/units';
 
 export const CHARGE_ICON_BY_KEY = {
-  [ELECTRIC_CAR.id]: (
-    <ElectricCar sx={{ color: PRIMARY_BLUE, fontSize: '3rem' }} />
-  ),
-  [ELECTRIC_BIKE.id]: (
-    <ElectricBike sx={{ color: PRIMARY_BLUE, fontSize: '3rem' }} />
-  ),
-  [SMARTPHONE.id]: (
-    <Smartphone sx={{ color: PRIMARY_BLUE, fontSize: '3rem' }} />
-  ),
-  [JACUZZI.id]: <HotTub sx={{ color: PRIMARY_BLUE, fontSize: '3rem' }} />,
-  [KETTLE.id]: <Blender sx={{ color: PRIMARY_BLUE, fontSize: '3rem' }} />,
-  [BUCKET.id]: <LocalDrink sx={{ color: PRIMARY_BLUE, fontSize: '3rem' }} />,
-  [TUB.id]: <Bathtub sx={{ color: PRIMARY_BLUE, fontSize: '3rem' }} />,
+  [ELECTRIC_CAR.id]: <Typography variant="h4">🚘</Typography>,
+  [ELECTRIC_BIKE.id]: <Typography variant="h4">🏍️</Typography>,
+  [SMARTPHONE.id]: <Typography variant="h4">📱</Typography>,
+  [JACUZZI.id]: <Typography variant="h3">🛁</Typography>,
+  [KETTLE.id]: <Typography variant="h4">🫖</Typography>,
+  [BUCKET.id]: <Typography variant="h4">🪣</Typography>,
+  [TUB.id]: <Typography variant="h4">🛀</Typography>,
 };

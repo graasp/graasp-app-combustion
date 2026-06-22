@@ -7,8 +7,8 @@ import { PRIMARY_BLUE } from '@/constants/css';
 import { DEVICE_CHARGE } from '@/constants/strings';
 import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
 import { EnergyObjectType } from '@/types';
+import { formatEnergyDisplay } from '@/utils';
 import { formatNumber } from '@/utils/chemistry';
-import { formatEnergyDisplay } from '@/utils/text';
 
 import InteractionBox from './InteractionBox';
 
@@ -39,6 +39,7 @@ const EnergyBox = ({
       secondaryIcon={CHARGE_ICON_BY_KEY[energyUnit.type.id]}
       tertiaryText={formatEnergyDisplay(selectedEnergyDisplay, energyUnit)}
       tertiaryTextColor={PRIMARY_BLUE}
+      iconCount={energyUnit.num}
     />
   );
 };

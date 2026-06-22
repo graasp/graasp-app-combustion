@@ -1,8 +1,8 @@
 import {
   BUCKET,
-  DONKEY,
   ELECTRIC_BIKE,
   ELECTRIC_CAR,
+  HORSE,
   KILOGRAMS,
   MILK_COW,
   MOLES,
@@ -28,7 +28,7 @@ export const ETHANOL = {
     },
     carbonDioxide: {
       value: 1062.8,
-      animal: { type: DONKEY, num: 3 },
+      animal: { type: HORSE, num: 3 },
       footballs: 193.2,
     },
   },
