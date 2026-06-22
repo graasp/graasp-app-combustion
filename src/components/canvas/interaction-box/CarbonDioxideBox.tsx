@@ -1,19 +1,23 @@
 import { Co2, SportsSoccer } from '@mui/icons-material';
 
+import { GAS_IMAGE_BY_KEY } from '@/components/gasImageByKey';
 import { CO2_RED } from '@/constants/css';
+import { GasObjectType } from '@/types';
+import { formatAnimalCount } from '@/utils';
 import { formatNumber } from '@/utils/chemistry';
 
 import InteractionBox from './InteractionBox';
 
 const CarbonDioxideBox = ({
-  value,
-  footballs,
+  carbonDioxide,
+  isEmpty,
 }: {
-  value: number;
-  footballs: number;
+  carbonDioxide: GasObjectType;
+  isEmpty: boolean;
 }): JSX.Element => (
   <InteractionBox
-    icon={<Co2 sx={{ color: CO2_RED, fontSize: '2.2rem' }} />}
+    isEmpty={isEmpty}
+    icon={<Co2 sx={{ color: CO2_RED, fontSize: '2.7rem' }} />}
     mainText={
       <>
         VOLUME OF CO<sub>2</sub> PRODUCED
@@ -25,13 +29,14 @@ const CarbonDioxideBox = ({
         <sub>
           CO<sub>2</sub>
         </sub>
-        = {formatNumber(value)} L
+        = {formatNumber(carbonDioxide.value)} L
       </>
     }
-    value={value}
-    secondaryIcon={footballs ? <SportsSoccer sx={{ color: CO2_RED }} /> : null}
-    secondaryText={footballs ? `${formatNumber(footballs)} footballs` : ''}
-    secondaryTextColor={CO2_RED}
+    secondaryIcon={GAS_IMAGE_BY_KEY[carbonDioxide.animal.type.id] || null}
+    tertiaryIcon={<SportsSoccer sx={{ color: CO2_RED, fontSize: '1.3rem' }} />}
+    tertiaryText={`${formatAnimalCount(carbonDioxide.animal)}, or ~${Math.round(carbonDioxide.footballs)} footballs${'\u00A0'}`}
+    tertiaryTextColor={CO2_RED}
+    iconCount={carbonDioxide.animal.num}
   />
 );
 

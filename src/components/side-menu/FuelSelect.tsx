@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import { Box, RadioGroup, Typography } from '@mui/material';
 
 import { setFuel, setUnits } from '@/actions/app-settings';
-import { FUELS } from '@/constants/chemistry';
 import { HEADING_TEXT } from '@/constants/css';
+import { FUELS } from '@/constants/fuels';
 import { KILOGRAMS } from '@/constants/units';
 import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
 

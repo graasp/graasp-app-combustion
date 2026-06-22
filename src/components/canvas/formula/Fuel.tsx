@@ -3,9 +3,10 @@ import { useContext } from 'react';
 import { Box } from '@mui/material';
 
 import { FORMULA_BY_KEY } from '@/components/formulaByKey';
-import { FUELS } from '@/constants/chemistry';
 import { PRIMARY_BLUE } from '@/constants/css';
+import { FUELS } from '@/constants/fuels';
 import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
+import { Fuel as FuelType } from '@/types';
 
 import FormulaEntity from './FormulaEntity';
 
@@ -19,7 +20,7 @@ const Fuel = (): JSX.Element => {
   const { fuel: selectedFuel } = state;
 
   const selectedFuelObj = FUELS.find((fuel) => fuel.id === selectedFuel);
-  const { label = '', id, emoji } = selectedFuelObj || {};
+  const { label = '', id, emoji = '' } = selectedFuelObj as FuelType;
 
   return (
     <Box sx={container}>

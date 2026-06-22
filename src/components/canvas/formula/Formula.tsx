@@ -2,8 +2,9 @@ import { useContext } from 'react';
 
 import { Box } from '@mui/material';
 
-import { FUELS } from '@/constants/chemistry';
 import { CANVAS_BORDER } from '@/constants/css';
+import { FUELS } from '@/constants/fuels';
+import { HYDROGEN } from '@/constants/fuels/hydrogen';
 import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
 import { Fuel as FuelType } from '@/types';
 import { computeCoefficients } from '@/utils/chemistry';
@@ -38,6 +39,7 @@ const innerContainer = {
 const Formula = (): JSX.Element => {
   const { state } = useContext(AppSettingsContext);
   const { fuel: selectedFuel } = state;
+  const isHydrogen = selectedFuel === HYDROGEN.id;
 
   const selectedFuelObj = FUELS.find((fuel) => fuel.id === selectedFuel) || {};
 
@@ -51,8 +53,10 @@ const Formula = (): JSX.Element => {
         <Symbol symbol="+" />
         <Oxygen coefficient={oxygenCoefficient} />
         <Symbol symbol="→" />
-        <CarbonDioxide coefficient={carbonDioxideCoefficient} />
-        <Symbol symbol="+" />
+        {isHydrogen ? null : (
+          <CarbonDioxide coefficient={carbonDioxideCoefficient} />
+        )}
+        {isHydrogen ? null : <Symbol symbol="+" />}
         <Water coefficient={waterCoefficient} />
       </Box>
     </Box>

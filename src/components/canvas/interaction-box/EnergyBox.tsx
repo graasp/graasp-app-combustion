@@ -1,30 +1,45 @@
 import { useContext } from 'react';
 
-import { BatteryChargingFull, Bolt } from '@mui/icons-material';
+import { Bolt } from '@mui/icons-material';
 
+import { CHARGE_ICON_BY_KEY } from '@/components/chargeIconByKey';
 import { PRIMARY_BLUE } from '@/constants/css';
+import { DEVICE_CHARGE } from '@/constants/strings';
 import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
+import { EnergyObjectType } from '@/types';
+import { formatEnergyDisplay } from '@/utils';
 import { formatNumber } from '@/utils/chemistry';
 
 import InteractionBox from './InteractionBox';
 
-const EnergyBox = ({ value }: { value: number }): JSX.Element => {
+const EnergyBox = ({
+  energy,
+  isEmpty,
+}: {
+  energy: EnergyObjectType;
+  isEmpty: boolean;
+}): JSX.Element => {
   const { state } = useContext(AppSettingsContext);
-  const { units } = state;
+  const { units, energy: selectedEnergyDisplay } = state;
+
+  const { value, charge, water } = energy;
+
+  const energyUnit = selectedEnergyDisplay === DEVICE_CHARGE ? charge : water;
 
   return (
     <InteractionBox
-      icon={<Bolt sx={{ color: PRIMARY_BLUE }} />}
+      isEmpty={isEmpty}
+      icon={<Bolt sx={{ color: PRIMARY_BLUE, fontSize: '2.2rem' }} />}
       mainText="ENERGY OBTAINED"
       subText={
         <>
           Δ<sub>c</sub>H° = {formatNumber(value)} kJ · {units}⁻¹
         </>
       }
-      value={value}
-      secondaryIcon={<BatteryChargingFull sx={{ color: PRIMARY_BLUE }} />}
-      secondaryText="200 1-week phone charges"
-      secondaryTextColor={PRIMARY_BLUE}
+      secondaryIcon={CHARGE_ICON_BY_KEY[energyUnit.type.id]}
+      tertiaryText={formatEnergyDisplay(selectedEnergyDisplay, energyUnit)}
+      tertiaryTextColor={PRIMARY_BLUE}
+      iconCount={energyUnit.num}
     />
   );
 };

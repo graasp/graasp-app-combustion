@@ -1,4 +1,4 @@
-import { DEFAULT_COEFFICIENTS } from '@/constants/chemistry';
+import { DEFAULT_COEFFICIENTS } from '@/constants/fuels';
 import { Fuel } from '@/types';
 
 export const computeCoefficients = (
@@ -17,7 +17,9 @@ export const computeCoefficients = (
   const { atomCount } = selectedFuel;
   const { carbon, hydrogen, oxygen = 0 } = atomCount;
 
-  const oxygenCoefficient = (2 * carbon + hydrogen / 2 - oxygen) / 2;
+  const oxygenCoefficient = carbon
+    ? (2 * carbon + hydrogen / 2 - oxygen) / 2
+    : oxygen;
   const carbonDioxideCoefficient = carbon;
   const waterCoefficient = hydrogen / 2;
 

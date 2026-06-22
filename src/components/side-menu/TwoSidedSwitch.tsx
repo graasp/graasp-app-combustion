@@ -20,8 +20,8 @@ const titleStyles = {
 
 const innerContainer = {
   display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'space-between',
-  alignItems: 'center',
   background: '#eff4f9',
   border: CANVAS_BORDER,
   borderRadius: '10px',
@@ -44,6 +44,13 @@ const rightLabelStyles = {
   fontSize: '0.825rem',
 };
 
+const rightSubtextStyles = {
+  opacity: 0.75,
+  textAlign: 'right',
+  lineHeight: 1.2,
+  fontSize: '0.75rem',
+};
+
 interface Props {
   title: string;
   leftLabel: string;
@@ -51,6 +58,7 @@ interface Props {
   isChecked: boolean;
   setIsChecked: Dispatch<SetStateAction<boolean>>;
   disabled?: boolean;
+  rightSubtext?: string;
 }
 
 const TwoSidedSwitch = ({
@@ -60,29 +68,35 @@ const TwoSidedSwitch = ({
   isChecked,
   setIsChecked,
   disabled = false,
+  rightSubtext = '',
 }: Props): JSX.Element => (
   <Box sx={container}>
     <Typography variant="body2" sx={titleStyles}>
       {title.toUpperCase()}
     </Typography>
     <Box sx={{ ...innerContainer, opacity: disabled ? 0.5 : 1 }}>
-      <Typography sx={leftLabelStyles}>{leftLabel}</Typography>
-      <Box sx={switchStyles}>
-        <CustomSwitch
-          checked={isChecked}
-          onChange={(event) => setIsChecked(event.target.checked)}
-          disabled={disabled}
-        />
+      <Box sx={{ display: 'flex' }}>
+        <Typography sx={leftLabelStyles}>{leftLabel}</Typography>
+        <Box sx={switchStyles}>
+          <CustomSwitch
+            checked={isChecked}
+            onChange={(event) => setIsChecked(event.target.checked)}
+            disabled={disabled}
+          />
+        </Box>
+        <Typography
+          sx={{
+            ...rightLabelStyles,
+            color: isChecked ? PRIMARY_BLUE : 'primary',
+            fontWeight: isChecked ? 500 : 'normal',
+          }}
+        >
+          {rightLabel}
+        </Typography>
       </Box>
-      <Typography
-        sx={{
-          ...rightLabelStyles,
-          color: isChecked ? PRIMARY_BLUE : 'primary',
-          fontWeight: isChecked ? 500 : 'normal',
-        }}
-      >
-        {rightLabel}
-      </Typography>
+      {rightSubtext && (
+        <Typography sx={rightSubtextStyles}>{rightSubtext}</Typography>
+      )}
     </Box>
   </Box>
 );

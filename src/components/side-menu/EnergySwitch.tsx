@@ -1,15 +1,20 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 
 import { t } from 'i18next';
+
+import { setEnergy } from '@/actions/app-settings';
+import { DEVICE_CHARGE, HEATING_WATER } from '@/constants/strings';
+import { AppSettingsContext } from '@/contexts/AppSettingsProvider';
 
 import TwoSidedSwitch from './TwoSidedSwitch';
 
 const EnergySwitch = (): JSX.Element => {
-  const [energy, setEnergy] = useState<'devices' | 'water'>('devices');
+  const { dispatch, state } = useContext(AppSettingsContext);
+  const { energy } = state;
 
   const handleToggle = (): void => {
-    if (energy === 'devices') setEnergy('water');
-    else setEnergy('devices');
+    if (energy === DEVICE_CHARGE) dispatch(setEnergy(HEATING_WATER));
+    else dispatch(setEnergy(DEVICE_CHARGE));
   };
 
   return (
@@ -17,7 +22,8 @@ const EnergySwitch = (): JSX.Element => {
       title={t('Indicate energy in:')}
       leftLabel={t('Device charges')}
       rightLabel={t('Heating water')}
-      isChecked={energy === 'water'}
+      rightSubtext="(20°C → 40°C)"
+      isChecked={energy === HEATING_WATER}
       setIsChecked={handleToggle}
     />
   );

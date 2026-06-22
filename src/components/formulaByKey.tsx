@@ -24,11 +24,7 @@ export const FORMULA_BY_KEY = {
       C<sub>8</sub>H<sub>18</sub>
     </>
   ),
-  stearin: (
-    <>
-      C<sub>57</sub>H<sub>110</sub>O<sub>6</sub>
-    </>
-  ),
+  hydrogen: <>H</>,
   oxygen: (
     <>
       O<sub>2</sub>
